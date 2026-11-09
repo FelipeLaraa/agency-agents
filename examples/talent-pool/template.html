@@ -1,0 +1,377 @@
+<title>Banco de Talentos</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: arquivo de RH. Barra fixa com as três visões, filtros em linha, fichas em grade, dossiê em gaveta lateral. */
+:root {
+  --bg: #eceff3; --surface: #fafbfc; --sunk: #e2e6ec; --ink: #17202b; --muted: #566273; --line: #cfd6df;
+  --accent: #2b3fa8; --on-accent: #ffffff;
+  --a1: #2a7449; --a2: #1f5fa6; --a3: #a35f00; --a4: #b3261e;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11151b; --surface: #1a2029; --sunk: #232b36; --ink: #e7ebf1; --muted: #9ba7b6; --line: #303a48;
+  --accent: #95a6ff; --on-accent: #10142b;
+  --a1: #6fc793; --a2: #7db5f0; --a3: #e2a650; --a4: #f2877d; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #11151b; --surface: #1a2029; --sunk: #232b36; --ink: #e7ebf1; --muted: #9ba7b6; --line: #303a48;
+  --accent: #95a6ff; --on-accent: #10142b;
+  --a1: #6fc793; --a2: #7db5f0; --a3: #e2a650; --a4: #f2877d; color-scheme: dark }
+
+* { box-sizing: border-box }
+[hidden] { display: none !important }
+body { background: var(--bg); color: var(--ink); font: 15px/1.5 var(--body); margin: 0 }
+button, input, select { font: inherit; color: inherit }
+button { cursor: pointer }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+h1, h2, h3, p { margin: 0 }
+.wrap { max-width: 1280px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg) }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: var(--bg); border-bottom: 1px solid var(--line) }
+.bar .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; padding-block: 10px }
+.brand { font: 700 20px/1.1 var(--display); letter-spacing: -0.01em; margin-right: auto }
+.tabs { display: flex; gap: 2px; background: var(--sunk); padding: 3px; border-radius: 8px }
+.tabs a { padding: 5px 12px; border-radius: 6px; text-decoration: none; color: var(--muted); font-weight: 500; white-space: nowrap }
+.tabs a[aria-current="page"] { background: var(--surface); color: var(--ink) }
+.squad { border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 5px 12px; font-weight: 500 }
+.squad b { font-family: var(--mono); color: var(--accent) }
+
+main { padding-block: 20px 56px; display: grid; gap: 20px }
+.lede { display: grid; gap: 6px; max-width: 70ch }
+.lede h1 { font: 700 clamp(24px, 4vw, 34px)/1.1 var(--display); letter-spacing: -0.02em; text-wrap: balance }
+.lede p { color: var(--muted) }
+.lede strong { color: var(--ink); font-weight: 600 }
+
+.filters { display: grid; gap: 10px }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center }
+.row > .lab { font: 500 11px/1 var(--mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); width: 84px; flex: none }
+input[type="search"], select { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; min-width: 0 }
+input[type="search"] { flex: 1 1 220px }
+.chip { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 4px 11px; font-size: 13px; display: inline-flex; gap: 6px; align-items: center }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink) }
+.chip .n { font-family: var(--mono); font-size: 11px; opacity: 0.7 }
+.count { color: var(--muted); font-size: 13px }
+details.legend { border: 1px solid var(--line); border-radius: 10px; background: var(--surface); padding: 10px 14px }
+details.legend summary { font-weight: 500; cursor: pointer }
+.legend .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-top: 12px }
+.legend h3 { font: 500 11px/1 var(--mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px }
+.legend dl { margin: 0; display: grid; gap: 6px; font-size: 13px }
+.legend dt { font-weight: 600 }
+.legend dd { margin: 0; color: var(--muted) }
+.legend .note { margin-top: 12px; font-size: 13px; color: var(--muted); max-width: 75ch }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 12px }
+.card { text-align: left; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px; display: grid; gap: 10px; grid-template-rows: auto 1fr auto; min-width: 0 }
+.card:hover { border-color: var(--muted) }
+.card .who { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; align-items: center }
+.card .emo { grid-row: span 2; font-size: 26px; line-height: 1; width: 34px; text-align: center }
+.card .nm { font: 700 16px/1.2 var(--display); overflow-wrap: anywhere }
+.bl { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 6px }
+.dot { width: 8px; height: 8px; border-radius: 2px; flex: none }
+.card .pt { font-size: 14px; color: var(--ink) }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; align-items: center }
+.tag { font: 500 11px/1 var(--mono); padding: 4px 7px; border-radius: 5px; background: var(--sunk); color: var(--muted); white-space: nowrap; display: inline-flex; gap: 5px; align-items: center }
+.tag.a1 { color: var(--a1) } .tag.a2 { color: var(--a2) } .tag.a3 { color: var(--a3) } .tag.a4 { color: var(--a4); box-shadow: inset 0 0 0 1px var(--a4) }
+.rank { display: inline-flex; gap: 2px; align-items: flex-end }
+.rank i { width: 3px; background: var(--line); border-radius: 1px }
+.rank i.on { background: var(--ink) }
+.picked { margin-left: auto; color: var(--accent); font: 500 11px/1 var(--mono) }
+.empty { color: var(--muted); padding: 32px 0 }
+
+.org { display: grid; gap: 14px }
+.unit { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden }
+.unit header { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-bottom: 1px solid var(--line) }
+.unit h2 { font: 700 16px/1.2 var(--display) }
+.unit header .n { margin-left: auto; font: 500 12px/1 var(--mono); color: var(--muted) }
+.tier { display: grid; grid-template-columns: 110px 1fr; gap: 10px; padding: 8px 14px; align-items: start }
+.tier + .tier { border-top: 1px dashed var(--line) }
+.tier .lab { font: 500 11px/1.6 var(--mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted) }
+.tier .ppl { display: flex; flex-wrap: wrap; gap: 6px; min-width: 0 }
+.tier .none { color: var(--muted); font-size: 13px }
+.person { border: 1px solid var(--line); background: var(--bg); border-radius: 7px; padding: 3px 9px; font-size: 13px; text-align: left }
+.person:hover { border-color: var(--muted) }
+.person.r { opacity: 0.6 }
+@media (max-width: 560px) { .tier { grid-template-columns: 1fr; gap: 4px } .row > .lab { width: 100% } }
+
+.over { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)) }
+@media (max-width: 400px) { .over { grid-template-columns: 1fr } }
+.grp { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px; display: grid; gap: 10px; align-content: start; min-width: 0 }
+.grp h2 { font: 700 17px/1.2 var(--display) }
+.grp p { font-size: 14px }
+.grp .meta { display: flex; flex-wrap: wrap; gap: 6px }
+.act { font: 500 11px/1 var(--mono); padding: 4px 7px; border-radius: 5px; color: var(--on-accent); background: var(--accent) }
+.act.manter { background: var(--sunk); color: var(--muted) }
+.act.arquivar { background: var(--a3); color: var(--bg) }
+.sec-h { font: 700 20px/1.2 var(--display); margin-top: 12px }
+.sec-p { color: var(--muted); max-width: 70ch }
+
+dialog { border: 0; padding: 0; background: var(--surface); color: var(--ink); width: min(560px, 100vw); max-width: 100vw; height: 100%; max-height: 100%; margin: 0 0 0 auto; border-left: 1px solid var(--line) }
+dialog::backdrop { background: rgba(10, 14, 20, 0.5) }
+.sheet { display: grid; gap: 18px; padding: 18px; padding-top: calc(18px + env(safe-area-inset-top, 0px)); padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px)); padding-right: max(18px, env(safe-area-inset-right, 0px)) }
+.sheet .top { display: flex; gap: 12px; align-items: start }
+.sheet .emo { font-size: 38px; line-height: 1 }
+.sheet h2 { font: 700 24px/1.1 var(--display); letter-spacing: -0.01em; overflow-wrap: anywhere }
+.sheet .vibe { color: var(--muted); font-style: italic; font-size: 14px }
+.x { margin-left: auto; border: 1px solid var(--line); background: var(--bg); border-radius: 8px; padding: 4px 10px; flex: none }
+.blk { display: grid; gap: 6px; min-width: 0 }
+.blk h3 { font: 500 11px/1 var(--mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted) }
+.blk .big { font-size: 17px; line-height: 1.4 }
+.blk ul { margin: 0; padding-left: 18px; display: grid; gap: 3px; font-size: 14px }
+.blk .sub { font-size: 13px; color: var(--muted) }
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px }
+.fact { background: var(--bg); border-radius: 8px; padding: 10px; display: grid; gap: 4px; min-width: 0 }
+.fact .k { font: 500 10px/1 var(--mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted) }
+.fact .v { font: 700 15px/1.2 var(--display) }
+.fact .d { font-size: 12px; color: var(--muted) }
+.fact.a1 .v { color: var(--a1) } .fact.a2 .v { color: var(--a2) } .fact.a3 .v { color: var(--a3) } .fact.a4 .v { color: var(--a4) }
+@media (max-width: 480px) { .facts { grid-template-columns: 1fr } }
+.path { font: 400 12px/1.5 var(--mono); background: var(--bg); border-radius: 6px; padding: 8px 10px; overflow-x: auto; white-space: nowrap; user-select: all }
+.checks { display: flex; flex-wrap: wrap; gap: 6px }
+.checks span { font-size: 12px; padding: 2px 8px; border-radius: 5px; background: var(--bg); color: var(--muted) }
+.checks span.ok { color: var(--ink) }
+.checks span.ok::before { content: "✓ "; color: var(--a1) }
+.checks span:not(.ok)::before { content: "– " }
+.cta { display: flex; flex-wrap: wrap; gap: 8px }
+.btn { border: 1px solid var(--accent); background: var(--accent); color: var(--on-accent); border-radius: 8px; padding: 8px 14px; font-weight: 600 }
+.btn.ghost { background: transparent; color: var(--accent) }
+.list { display: grid; gap: 6px }
+.list .li { display: flex; gap: 8px; align-items: center; background: var(--bg); border-radius: 8px; padding: 6px 10px }
+.list .li button { margin-left: auto; border: 0; background: none; color: var(--muted); padding: 2px 6px }
+@media (prefers-reduced-motion: no-preference) { .card, .person, .chip { transition: border-color 0.12s } }
+</style>
+
+<div class="bar"><div class="wrap">
+  <div class="brand">Banco de Talentos</div>
+  <nav class="tabs" aria-label="Visões">
+    <a href="#talentos">Talentos</a><a href="#organograma">Organograma</a><a href="#sobreposicoes">Sobreposições</a>
+  </nav>
+  <button class="squad" id="squadBtn" type="button">Escalação <b id="squadN">0</b></button>
+</div></div>
+
+<main class="wrap">
+  <section class="lede" id="lede"></section>
+
+  <section class="filters" id="filters" aria-label="Filtros">
+    <div class="row">
+      <input type="search" id="q" placeholder="Buscar por nome, habilidade ou tecnologia" aria-label="Buscar">
+      <select id="bloco" aria-label="Bloco"></select>
+      <select id="sort" aria-label="Ordenar">
+        <option value="lvl">Ordenar por hierarquia</option>
+        <option value="name">Ordenar por nome</option>
+        <option value="acc">Ordenar por acesso (maior primeiro)</option>
+        <option value="words">Ordenar por tamanho (maior primeiro)</option>
+      </select>
+    </div>
+    <div class="row" id="fScope"><span class="lab">Serve para</span></div>
+    <div class="row" id="fLvl"><span class="lab">Hierarquia</span></div>
+    <div class="row" id="fAcc"><span class="lab">Acesso</span></div>
+    <details class="legend">
+      <summary>Como ler uma ficha</summary>
+      <div class="cols">
+        <div><h3>Hierarquia no bloco</h3><dl id="lgLvl"></dl></div>
+        <div><h3>Nível de acesso</h3><dl id="lgAcc"></dl></div>
+        <div><h3>Serve para</h3><dl id="lgScope"></dl></div>
+      </div>
+      <p class="note">Hierarquia, acesso e escopo são avaliação minha a partir do que cada arquivo descreve. O repositório não declara cargo nem permissão: só 17 dos 282 agentes listam ferramentas. Habilidades e entregáveis são copiados dos próprios arquivos, por isso estão em inglês.</p>
+    </details>
+  </section>
+
+  <section id="view" aria-live="polite"></section>
+</main>
+
+<dialog id="dlg" aria-label="Ficha do agente"><div class="sheet" id="sheet"></div></dialog>
+
+<script>
+const D = /*__DATA__*/null;
+const A = D.agents, B = D.blocos, byId = Object.fromEntries(A.map(a => [a.id, a]));
+const LVL = { 1: ["Direção", "Responde pelo bloco inteiro e decide prioridades."], 2: ["Liderança", "Define estratégia ou arquitetura e orienta especialistas."], 3: ["Especialista", "Domina uma disciplina e entrega com autonomia."], 4: ["Operacional", "Executa uma tarefa ou plataforma específica."] };
+const ACC = { 1: ["Consultivo", "Só lê e escreve texto: planos, análises, conteúdo."], 2: ["Constrói", "Cria e altera arquivos e código do projeto."], 3: ["Opera", "Roda comandos e mexe em infraestrutura, contas ou APIs externas."], 4: ["Crítico", "Toca em dinheiro, dados pessoais ou de saúde, produção ou ataque autorizado. Pede supervisão."] };
+const SCOPE = { U: ["Qualquer negócio", "Útil seja qual for o nicho."], T: ["Precisa de software", "Só faz sentido se a empresa constrói ou mantém produto digital."], N: ["Nicho", "Setor ou tecnologia específica."], R: ["Regional", "Preso a um país: China, governo dos EUA, França ou Coreia."] };
+const ACT = { fundir: "Fundir em um", lider: "Um principal + variações", manter: "Manter separados", arquivar: "Ignorar se não usa" };
+const state = { q: "", bloco: "", sort: "lvl", scope: new Set(), lvl: new Set(), acc: new Set() };
+let squad = new Set();
+try { squad = new Set(JSON.parse(localStorage.getItem("escalacao") || "[]").filter(id => byId[id])); } catch (e) {}
+const save = () => { try { localStorage.setItem("escalacao", JSON.stringify([...squad])); } catch (e) {} };
+
+function h(tag, attrs, ...kids) {
+  const el = document.createElement(tag);
+  for (const k in attrs || {}) {
+    const v = attrs[k];
+    if (v == null || v === false) continue;
+    if (k === "class") el.className = v; else if (k.startsWith("on")) el.addEventListener(k.slice(2), v);
+    else if (k === "style") el.style.cssText = v; else el.setAttribute(k, v);
+  }
+  for (const kid of kids.flat()) if (kid != null && kid !== false) el.append(kid);
+  return el;
+}
+const $ = id => document.getElementById(id);
+const fill = (el, ...xs) => el.replaceChildren(...xs.flat().filter(x => x != null && x !== false));
+const dot = b => h("span", { class: "dot", style: "background:" + B[b].c });
+const rank = l => h("span", { class: "rank", "aria-hidden": "true" }, [1, 2, 3, 4].map(i => h("i", { class: i <= 5 - l ? "on" : "", style: "height:" + (3 + i * 3) + "px" })));
+const kTok = w => "~" + (w * 1.4 / 1000).toFixed(1).replace(".", ",") + " mil tokens";
+const hay = a => a._h || (a._h = [a.name, a.pt, a.desc, a.vibe, B[a.bloco].n, a.div, a.skills.join(" "), a.deliv.join(" "), a.langs.join(" ")].join(" ").toLowerCase());
+
+function passes(a, skip) {
+  if (state.bloco && a.bloco !== state.bloco) return false;
+  if (skip !== "scope" && state.scope.size && !state.scope.has(a.scope)) return false;
+  if (skip !== "lvl" && state.lvl.size && !state.lvl.has(a.lvl)) return false;
+  if (skip !== "acc" && state.acc.size && !state.acc.has(a.acc)) return false;
+  if (state.q && !state.q.split(/\s+/).every(t => hay(a).includes(t))) return false;
+  return true;
+}
+
+function chips(hostId, key, labels) {
+  const host = $(hostId);
+  host.querySelectorAll(".chip").forEach(c => c.remove());
+  for (const k of Object.keys(labels)) {
+    const val = key === "scope" ? k : +k, n = A.filter(a => a[key] === val && passes(a, key)).length;
+    host.append(h("button", { class: "chip", type: "button", "aria-pressed": state[key].has(val) ? "true" : "false", title: labels[k][1],
+      onclick: () => { state[key].has(val) ? state[key].delete(val) : state[key].add(val); render(); } }, labels[k][0], h("span", { class: "n" }, n)));
+  }
+}
+
+function card(a) {
+  return h("button", { class: "card", type: "button", onclick: () => open(a.id) },
+    h("div", { class: "who" }, h("span", { class: "emo", "aria-hidden": "true" }, a.emoji || "·"), h("span", { class: "nm" }, a.name),
+      h("span", { class: "bl" }, dot(a.bloco), B[a.bloco].n)),
+    h("p", { class: "pt" }, a.pt),
+    h("div", { class: "tags" },
+      h("span", { class: "tag" }, rank(a.lvl), LVL[a.lvl][0]),
+      h("span", { class: "tag a" + a.acc }, ACC[a.acc][0]),
+      h("span", { class: "tag" }, SCOPE[a.scope][0]),
+      squad.has(a.id) && h("span", { class: "picked" }, "na escalação")));
+}
+
+function viewTalentos(list) {
+  const sorters = { lvl: (x, y) => x.lvl - y.lvl || x.name.localeCompare(y.name), name: (x, y) => x.name.localeCompare(y.name),
+    acc: (x, y) => y.acc - x.acc || x.name.localeCompare(y.name), words: (x, y) => y.words - x.words };
+  list = [...list].sort(sorters[state.sort]);
+  return [h("p", { class: "count" }, list.length + " de " + A.length + " agentes"),
+    list.length ? h("div", { class: "grid" }, list.map(card)) : h("p", { class: "empty" }, "Nenhum agente com esses filtros. Remova um filtro ou limpe a busca.")];
+}
+
+function viewOrg(list) {
+  const units = Object.keys(B).filter(b => !state.bloco || b === state.bloco).map(b => {
+    const mine = list.filter(a => a.bloco === b);
+    if (!mine.length) return null;
+    return h("section", { class: "unit" },
+      h("header", {}, dot(b), h("h2", {}, B[b].n), h("span", { class: "n" }, mine.length + " agentes")),
+      [1, 2, 3, 4].map(l => {
+        const row = mine.filter(a => a.lvl === l).sort((x, y) => x.name.localeCompare(y.name));
+        return h("div", { class: "tier" }, h("span", { class: "lab" }, LVL[l][0]),
+          h("div", { class: "ppl" }, row.length ? row.map(a => h("button", { class: "person" + (a.scope === "R" ? " r" : ""), type: "button", title: a.pt, onclick: () => open(a.id) }, (a.emoji ? a.emoji + " " : "") + a.name))
+            : h("span", { class: "none" }, l === 1 ? "Sem direção: o bloco não tem chefe definido" : "Ninguém neste nível")));
+      }));
+  }).filter(Boolean);
+  return [h("p", { class: "count" }, "Agentes regionais aparecem esmaecidos. Os filtros acima também valem aqui."),
+    units.length ? h("div", { class: "org" }, units) : h("p", { class: "empty" }, "Nenhum agente com esses filtros.")];
+}
+
+function viewOver() {
+  const person = id => h("button", { class: "person", type: "button", onclick: () => open(id) }, (byId[id].emoji ? byId[id].emoji + " " : "") + byId[id].name);
+  const thin = A.filter(a => a.words < 500).sort((x, y) => x.words - y.words), fat = A.filter(a => a.words > 3500).sort((x, y) => y.words - x.words);
+  return [
+    h("p", { class: "sec-p" }, "Cópia literal quase não existe: o par mais parecido tem " + D.stats.max + "% de texto em comum e só " + D.stats.over40 + " pares, entre quase 40 mil, chegam a 40%. A repetição aqui é de função. Vários agentes fazem o mesmo trabalho com outro nome, outra plataforma ou outro país."),
+    h("div", { class: "over" }, D.grupos.map(g => h("article", { class: "grp" },
+      h("h2", {}, g.t),
+      h("div", { class: "meta" }, h("span", { class: "act " + g.a }, ACT[g.a]), h("span", { class: "tag" }, g.m.length + " agentes"),
+        h("span", { class: "tag" }, "texto até " + g.max + "% parecido"), h("span", { class: "tag" }, kTok(g.words) + " somados")),
+      h("p", {}, g.n),
+      h("div", { class: "tier", style: "padding:0;grid-template-columns:1fr" }, h("div", { class: "ppl" }, g.m.map(person)))))),
+    h("h2", { class: "sec-h" }, "Fichas rasas"),
+    h("p", { class: "sec-p" }, thin.length + " agentes têm menos de 500 palavras. São mais um rótulo do que um profissional: dão pouca instrução ao modelo."),
+    h("div", { class: "tier", style: "padding:0;grid-template-columns:1fr" }, h("div", { class: "ppl" }, thin.map(a => person(a.id)))),
+    h("h2", { class: "sec-h" }, "Fichas extensas"),
+    h("p", { class: "sec-p" }, fat.length + " agentes passam de 3.500 palavras. Cada conversa com eles já começa com cerca de 5 mil tokens ou mais ocupados. Vale conferir se o tamanho se paga."),
+    h("div", { class: "tier", style: "padding:0;grid-template-columns:1fr" }, h("div", { class: "ppl" }, fat.map(a => person(a.id))))];
+}
+
+function open(id) {
+  const a = byId[id], above = A.filter(x => x.bloco === a.bloco && x.lvl < a.lvl).sort((x, y) => y.lvl - x.lvl || x.name.localeCompare(y.name));
+  const boss = above.filter(x => x.lvl === (above[0] || {}).lvl), groups = D.grupos.filter(g => g.m.includes(id));
+  const link = x => h("button", { class: "person", type: "button", onclick: () => open(x.id) }, (x.emoji ? x.emoji + " " : "") + x.name);
+  const ul = arr => h("ul", {}, arr.map(s => h("li", {}, s)));
+  const toggle = h("button", { class: "btn" + (squad.has(id) ? " ghost" : ""), type: "button", onclick: () => { squad.has(id) ? squad.delete(id) : squad.add(id); save(); render(); open(id); } },
+    squad.has(id) ? "Tirar da escalação" : "Adicionar à escalação");
+  const size = a.words < 500 ? "Ficha rasa" : a.words > 3500 ? "Ficha extensa" : "Tamanho normal";
+  fill($("sheet"),
+    h("div", { class: "top" }, h("span", { class: "emo", "aria-hidden": "true" }, a.emoji || "·"),
+      h("div", { class: "blk" }, h("h2", {}, a.name), h("span", { class: "bl" }, dot(a.bloco), B[a.bloco].n + " · pasta " + a.div), a.vibe && h("p", { class: "vibe" }, a.vibe)),
+      h("button", { class: "x", type: "button", onclick: () => $("dlg").close() }, "Fechar")),
+    h("div", { class: "blk" }, h("h3", {}, "O que faz pelo negócio"), h("p", { class: "big" }, a.pt)),
+    h("div", { class: "facts" },
+      h("div", { class: "fact" }, h("span", { class: "k" }, "Hierarquia"), h("span", { class: "v" }, LVL[a.lvl][0]), h("span", { class: "d" }, LVL[a.lvl][1])),
+      h("div", { class: "fact a" + a.acc }, h("span", { class: "k" }, "Acesso"), h("span", { class: "v" }, ACC[a.acc][0]), h("span", { class: "d" }, ACC[a.acc][1])),
+      h("div", { class: "fact" }, h("span", { class: "k" }, "Serve para"), h("span", { class: "v" }, SCOPE[a.scope][0]), h("span", { class: "d" }, SCOPE[a.scope][1]))),
+    h("div", { class: "blk" }, h("h3", {}, "Acima dele no bloco"),
+      boss.length ? h("div", { class: "tier", style: "padding:0;grid-template-columns:1fr" }, h("div", { class: "ppl" }, boss.map(link)))
+        : h("p", { class: "sub" }, a.lvl === 1 ? "Ninguém. É o topo do bloco." : "Ninguém. O bloco não tem nível acima preenchido.")),
+    h("div", { class: "blk" }, h("h3", {}, "Habilidades (do arquivo)"), a.skills.length ? ul(a.skills) : h("p", { class: "sub" }, "O arquivo não separa habilidades em seção própria. Veja a descrição original abaixo.")),
+    h("div", { class: "blk" }, h("h3", {}, "O que pode desenvolver"),
+      a.deliv.length ? ul(a.deliv) : h("p", { class: "sub" }, "O arquivo não lista entregáveis em seção própria."),
+      a.langs.length ? h("p", { class: "sub" }, "Traz exemplos prontos em: " + a.langs.join(", ")) : h("p", { class: "sub" }, "Não traz exemplos de código. Entrega texto e orientação.")),
+    (a.tools.length || a.services.length) ? h("div", { class: "blk" }, h("h3", {}, "Declarado no arquivo"),
+      a.tools.length ? h("p", { class: "sub" }, "Ferramentas: " + a.tools.join(", ")) : null,
+      a.services.length ? h("p", { class: "sub" }, "Depende de serviços externos: " + a.services.join(", ")) : null) : null,
+    h("div", { class: "blk" }, h("h3", {}, "Descrição original"), h("p", { class: "sub" }, a.desc)),
+    (a.sim.length || groups.length) ? h("div", { class: "blk" }, h("h3", {}, "Parecidos com ele"),
+      groups.map(g => h("p", { class: "sub" }, "Grupo “" + g.t + "”: " + ACT[g.a].toLowerCase() + ".")),
+      h("div", { class: "tier", style: "padding:0;grid-template-columns:1fr" }, h("div", { class: "ppl" }, a.sim.map(([sid, s]) => h("button", { class: "person", type: "button", onclick: () => open(sid) }, byId[sid].name + " · " + s + "%"))))) : null,
+    h("div", { class: "blk" }, h("h3", {}, "Qualidade da ficha"),
+      h("div", { class: "checks" }, ["Regras", "Processo", "Métricas de sucesso", "Entregáveis", "Quando não usar"].map((t, i) => h("span", { class: a.has[i] ? "ok" : "" }, t))),
+      h("p", { class: "sub" }, size + ": " + a.words.toLocaleString("pt-BR") + " palavras, " + kTok(a.words) + " de contexto por conversa.")),
+    h("div", { class: "blk" }, h("h3", {}, "Arquivo"), h("div", { class: "path" }, a.path)),
+    h("div", { class: "cta" }, toggle));
+  const d = $("dlg");
+  if (!d.open) d.showModal();
+  d.scrollTop = 0;
+}
+
+function openSquad() {
+  const ids = [...squad], cmd = "./scripts/install.sh --tool claude-code --agent " + ids.join(",");
+  const msg = h("span", { class: "sub" });
+  fill($("sheet"),
+    h("div", { class: "top" }, h("div", { class: "blk" }, h("h2", {}, "Escalação"), h("p", { class: "vibe" }, "Os agentes que você separou para puxar agora. Fica salvo só neste navegador.")),
+      h("button", { class: "x", type: "button", onclick: () => $("dlg").close() }, "Fechar")),
+    ids.length ? h("div", { class: "list" }, ids.map(id => h("div", { class: "li" }, h("span", {}, (byId[id].emoji || "") + " " + byId[id].name),
+      h("button", { type: "button", "aria-label": "Remover " + byId[id].name, onclick: () => { squad.delete(id); save(); render(); openSquad(); } }, "remover"))))
+      : h("p", { class: "sub" }, "Vazia. Abra uma ficha e toque em “Adicionar à escalação”."),
+    ids.length ? h("div", { class: "blk" }, h("h3", {}, "Comando para instalar no Claude Code"), h("div", { class: "path", id: "cmd" }, cmd),
+      h("div", { class: "cta" }, h("button", { class: "btn", type: "button", onclick: () => {
+        const sel = () => { const r = document.createRange(); r.selectNodeContents($("cmd")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); msg.textContent = "Selecionado. Copie com Ctrl+C."; };
+        try { navigator.clipboard.writeText(cmd).then(() => { msg.textContent = "Copiado."; }, sel); } catch (e) { sel(); } } }, "Copiar comando"), msg),
+      h("p", { class: "sub" }, "Rode na raiz do repositório. Total de contexto: " + kTok(ids.reduce((s, id) => s + byId[id].words, 0)) + ".")) : null);
+  const d = $("dlg");
+  if (!d.open) d.showModal();
+}
+
+function render() {
+  const route = ["talentos", "organograma", "sobreposicoes"].includes(location.hash.slice(1)) ? location.hash.slice(1) : "talentos";
+  document.querySelectorAll(".tabs a").forEach(a => a.getAttribute("href") === "#" + route ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
+  $("filters").hidden = route === "sobreposicoes";
+  $("sort").hidden = route !== "talentos";
+  chips("fScope", "scope", SCOPE); chips("fLvl", "lvl", LVL); chips("fAcc", "acc", ACC);
+  $("squadN").textContent = squad.size;
+  const list = A.filter(a => passes(a));
+  $("view").replaceChildren(...(route === "talentos" ? viewTalentos(list) : route === "organograma" ? viewOrg(list) : viewOver()).flat());
+}
+
+(function init() {
+  const n = k => A.filter(a => a.scope === k).length;
+  $("lede").append(h("h1", {}, A.length + " candidatos, " + n("U") + " servem para qualquer negócio"),
+    h("p", {}, "Outros ", h("strong", {}, n("T") + " só fazem sentido se você tem produto de software"), ", ", h("strong", {}, n("N") + " são de nicho"),
+      " (games, mapas, saúde, advocacia) e ", h("strong", {}, n("R") + " são presos a um país"), ", quase todos China. Toque em uma ficha para ver o dossiê completo."));
+  $("bloco").append(h("option", { value: "" }, "Todos os blocos"), ...Object.keys(B).map(b => h("option", { value: b }, B[b].n + " (" + A.filter(a => a.bloco === b).length + ")")));
+  for (const [id, M] of [["lgLvl", LVL], ["lgAcc", ACC], ["lgScope", SCOPE]]) for (const k in M) $(id).append(h("dt", {}, M[k][0]), h("dd", {}, M[k][1]));
+  $("q").addEventListener("input", e => { state.q = e.target.value.trim().toLowerCase(); render(); });
+  $("bloco").addEventListener("change", e => { state.bloco = e.target.value; render(); });
+  $("sort").addEventListener("change", e => { state.sort = e.target.value; render(); });
+  $("squadBtn").addEventListener("click", openSquad);
+  $("dlg").addEventListener("click", e => { if (e.target === $("dlg")) $("dlg").close(); });
+  addEventListener("hashchange", () => { render(); scrollTo(0, 0); });
+  render();
+})();
+</script>

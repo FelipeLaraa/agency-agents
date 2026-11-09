@@ -1,0 +1,287 @@
+# Curadoria do banco de talentos. Uma linha por agente:
+# arquivo|bloco|nivel|acesso|escopo|o que faz pelo negocio
+# nivel: 1 Direcao, 2 Lideranca, 3 Especialista, 4 Operacional
+# acesso: 1 Consultivo, 2 Constroi, 3 Opera, 4 Critico
+# escopo: U qualquer negocio, T precisa de software, N nicho, R regional
+academic-anthropologist|acad|3|1|N|Constrói culturas e sociedades coerentes para histórias, jogos e mundos fictícios. Também ajuda a entender rituais e comportamento de um público.
+academic-geographer|acad|3|1|N|Monta geografia, clima e recursos coerentes para mundos fictícios ou análises territoriais.
+academic-historian|acad|3|1|N|Valida coerência histórica e dá detalhe de época a conteúdo, roteiros e cenários.
+academic-narratologist|acad|3|1|U|Estrutura histórias: arco, personagem e narrativa. Serve para storytelling de marca, roteiro e conteúdo.
+academic-psychologist|acad|3|1|U|Explica comportamento e motivação humana. Ajuda a criar personas e personagens críveis.
+academic-statistician|acad|3|1|U|Testa se um número ou afirmação se sustenta: desenha experimentos e separa sinal de ruído.
+research-synthesist|acad|3|1|U|Revisa várias fontes e entrega um mapa honesto do que a evidência sustenta.
+design-brand-guardian|des|2|1|U|Define e protege a identidade da marca: posicionamento, voz e consistência visual.
+design-image-prompt-engineer|des|4|1|U|Escreve prompts de imagem para IA com resultado de fotografia profissional.
+design-inclusive-visuals-specialist|des|3|1|U|Evita estereótipos e vieses em imagens e vídeos gerados por IA.
+design-persona-walkthrough|des|3|1|U|Simula um cliente lendo sua página e entrega relatório de conversão trecho a trecho.
+design-ui-designer|des|3|2|T|Cria sistema visual, componentes e telas consistentes e acessíveis.
+design-ui-finish-gate-reviewer|des|3|2|T|Barra interface genérica antes de ir ao ar: revisa contra contrato de design e evidência real.
+design-ux-architect|des|2|2|T|Entrega a fundação de UX e CSS para os devs: estrutura, layout e guia de implementação.
+design-ux-researcher|des|3|1|U|Pesquisa usuários, testa usabilidade e traduz em melhorias de produto.
+design-visual-storyteller|des|3|1|U|Transforma informação complexa em narrativa visual e peças multimídia.
+design-whimsy-injector|des|4|2|U|Adiciona personalidade e momentos de encanto à marca e ao produto.
+specialized-cultural-intelligence-strategist|des|3|1|U|Garante que produto e comunicação funcionem em culturas diferentes.
+specialized-focus-music-architect|des|4|1|N|Cria prompts de música instrumental para foco e concentração.
+engineering-ai-data-remediation-engineer|dia|3|3|N|Conserta dados quebrados em escala com IA local, sem perder linhas e sem mandar dados para a nuvem.
+engineering-ai-engineer|dia|3|2|T|Constrói recursos de IA/ML e coloca modelos em produção.
+engineering-api-platform-engineer|eng|3|2|T|Desenha APIs públicas e de parceiros: contrato, versão, SDK, gateway e portal de devs.
+engineering-ats-validator-architect|eng|3|2|N|Projeta e valida sistemas de triagem de currículos (ATS) e leitores de currículo.
+engineering-autonomous-optimization-architect|agt|2|3|T|Governa custo e desempenho de APIs de IA: testa alternativas em paralelo e trava gasto descontrolado.
+engineering-backend-architect|eng|2|2|T|Arquiteta o lado servidor: banco, APIs, microsserviços e nuvem escaláveis.
+engineering-china-network-engineer|ops|3|3|R|Redes corporativas com Huawei, H3C e Ruijie e conformidade chinesa.
+engineering-cms-developer|eng|3|2|T|Constrói sites em WordPress e Drupal: temas, plugins e arquitetura de conteúdo.
+engineering-code-reviewer|eng|3|1|T|Revisa código apontando bugs, segurança e manutenção, sem implicar com estilo.
+engineering-codebase-onboarding-engineer|eng|4|1|T|Explica um código desconhecido rápido, só com fatos do próprio código.
+engineering-data-engineer|dia|3|3|T|Constrói pipelines de dados, ETL e lakehouse confiáveis.
+engineering-data-visualization-engineer|dia|3|2|T|Cria gráficos e dashboards honestos, acessíveis e rápidos.
+engineering-database-optimizer|dia|3|3|T|Deixa o banco rápido: schema, índices e queries (Postgres, MySQL, Supabase).
+engineering-database-reliability-engineer|ops|3|4|T|Garante que o banco não cai nem perde dados: replicação, backup, failover e migração sem parada.
+engineering-desktop-app-engineer|eng|3|2|T|Constrói apps desktop (Electron/Tauri) com assinatura, auto-update e segurança.
+engineering-developer-tooling-engineer|eng|3|2|T|Cria CLIs e ferramentas internas que aceleram o time de devs.
+engineering-devops-automator|ops|3|3|T|Automatiza infraestrutura, CI/CD e operação em nuvem.
+engineering-drupal-performance|eng|4|3|N|Acelera sites Drupal: Core Web Vitals, cache e banco.
+engineering-drupal-shopping-cart|eng|4|3|N|Monta loja em Drupal Commerce: catálogo, pagamento e checkout.
+engineering-email-intelligence-engineer|dia|3|3|T|Extrai dados estruturados de threads de e-mail para alimentar IA e automações.
+engineering-embedded-firmware-engineer|eng|3|2|N|Programa firmware de hardware: ESP32, STM32, Nordic, FreeRTOS.
+engineering-feishu-integration-developer|eng|4|3|R|Integra sistemas ao Feishu/Lark: bots, aprovações e planilhas.
+engineering-filament-optimization-specialist|eng|4|2|N|Reorganiza painéis admin em Filament PHP para ficarem usáveis.
+engineering-finops-engineer|ops|3|3|T|Corta custo de nuvem (AWS/GCP/Azure) e liga gasto a resultado de negócio.
+engineering-frontend-developer|eng|3|2|T|Constrói a interface web (React/Vue/Angular) com bom desempenho.
+engineering-gaussdb-expert|dia|4|3|R|Especialista no banco GaussDB da Huawei.
+engineering-git-workflow-master|eng|4|2|T|Organiza o Git: branches, commits e fluxo de versão limpos.
+engineering-i18n-engineer|eng|3|2|T|Prepara o software para vários idiomas, moedas e formatos.
+engineering-identity-access-engineer|sec|3|4|T|Constrói login e permissões: OAuth, SSO, passkeys e papéis por cliente.
+engineering-incident-response-commander|ops|2|3|T|Comanda incidentes em produção e conduz o post-mortem.
+engineering-iot-fleet-engineer|ops|3|3|N|Gerencia frotas de dispositivos IoT: provisionamento, telemetria e atualização remota.
+engineering-it-service-manager|ops|2|1|U|Organiza a TI como serviço (ITIL 4): catálogo, chamados, mudanças e SLAs.
+engineering-knowledge-graph-engineer|dia|3|2|T|Estrutura conhecimento em grafo para a IA navegar contexto com menos custo e menos alucinação.
+engineering-llm-post-training-engineer|dia|3|3|N|Conduz fine-tuning de LLMs e decide se um modelo novo pode ser liberado.
+engineering-minimal-change-engineer|eng|4|2|T|Corrige só o que foi pedido, com a menor mudança possível, sem refatorar por conta própria.
+engineering-mobile-app-builder|eng|3|2|T|Constrói apps iOS/Android nativos ou multiplataforma.
+engineering-mobile-release-engineer|ops|3|3|T|Publica apps nas lojas: assinatura, pipeline, liberação gradual e saúde da versão.
+engineering-multi-agent-systems-architect|agt|2|2|T|Projeta sistemas com vários agentes de IA: topologia, contexto, falhas e supervisão humana.
+engineering-network-engineer|ops|3|3|N|Redes Cisco, Juniper e Palo Alto: roteamento, firewall e diagnóstico.
+engineering-orgscript-engineer|eng|4|2|N|Implementa a linguagem OrgScript de regras de negócio.
+engineering-payments-billing-engineer|eng|3|4|T|Integra pagamentos e assinaturas (Stripe, Adyen, PayPal) com conciliação financeira.
+engineering-pdf-engine-architect|eng|3|2|N|Projeta geração de PDF a partir de HTML com precisão de layout.
+engineering-platform-engineer|ops|2|3|T|Cria a plataforma interna que deixa os devs se servirem de infraestrutura sozinhos.
+engineering-privacy-engineer|sec|3|4|T|Implementa privacidade no código: descoberta de dados pessoais, consentimento e exclusão.
+engineering-prompt-engineer|agt|3|1|U|Escreve, testa e otimiza prompts para a IA se comportar de forma confiável.
+engineering-rag-pipeline-engineer|dia|3|2|T|Constrói busca com IA (RAG) que traz o contexto certo.
+engineering-rapid-prototyper|eng|3|2|U|Constrói MVP e prova de conceito muito rápido para validar uma ideia.
+engineering-realtime-collaboration-engineer|eng|3|2|T|Constrói tempo real: WebSocket, presença, edição colaborativa e sincronização offline.
+engineering-rust-refactoring-specialist|eng|4|2|N|Refatora código Rust em escala com segurança.
+engineering-search-relevance-engineer|dia|3|2|T|Melhora a busca do produto (Elasticsearch/OpenSearch) e mede relevância.
+engineering-section-508-specialist|qa|3|2|R|Acessibilidade conforme a lei federal dos EUA (Section 508).
+engineering-senior-developer|eng|3|2|N|Implementação premium em Laravel/Livewire com CSS avançado e Three.js.
+engineering-servicenow-developer-mentor|eng|4|3|N|Desenvolve e depura na plataforma ServiceNow.
+engineering-software-architect|eng|2|1|T|Decide a arquitetura do sistema e registra as decisões técnicas.
+engineering-solidity-smart-contract-engineer|eng|3|4|N|Escreve contratos inteligentes em Solidity para DeFi.
+engineering-sre|ops|3|3|T|Mantém produção confiável: SLOs, observabilidade e menos trabalho manual.
+engineering-technical-writer|eng|4|2|T|Escreve documentação técnica, README e tutoriais que os devs leem de verdade.
+engineering-universal-document-compiler|eng|3|2|N|Projeta motor de documentos paginados independente de formato.
+engineering-uswds-developer|eng|4|2|R|Front-end no padrão visual do governo dos EUA (USWDS).
+engineering-video-streaming-engineer|eng|3|3|N|Monta streaming de vídeo: HLS/DASH, transcodificação, DRM e CDN.
+engineering-voice-ai-integration-engineer|dia|3|2|T|Monta pipeline de transcrição de áudio: Whisper, legendas e identificação de falantes.
+engineering-webassembly-engineer|eng|3|2|N|Compila Rust/C++/Go para WebAssembly com desempenho quase nativo.
+engineering-wechat-mini-program-developer|eng|4|3|R|Desenvolve Mini Programs do WeChat com pagamento.
+engineering-wordpress-performance|eng|4|3|N|Acelera sites WordPress: Core Web Vitals, cache e banco.
+engineering-wordpress-shopping-cart|eng|4|3|N|Monta loja WooCommerce: catálogo, pagamento e checkout.
+lsp-index-engineer|eng|3|2|N|Constrói inteligência de código via Language Server Protocol.
+specialized-codebase-archaeologist|eng|3|1|T|Audita código mexido por várias IAs e acha divergências, código morto e documentação desatualizada.
+specialized-salesforce-architect|eng|2|3|N|Arquitetura de soluções Salesforce em escala.
+finance-bookkeeper-controller|fin|3|4|U|Faz a contabilidade do dia a dia: conciliações, fechamento mensal e controles internos.
+finance-financial-analyst|fin|3|1|U|Modela finanças, projeta cenários e apoia decisões de investimento.
+finance-fpa-analyst|fin|3|1|U|Orçamento, previsto x realizado e previsão contínua.
+finance-investment-researcher|fin|3|1|N|Pesquisa investimentos: due diligence, valuation e análise de carteira.
+finance-tax-strategist|fin|3|1|U|Planeja tributos e conformidade fiscal em várias jurisdições.
+accounts-payable-agent|fin|4|4|U|Executa pagamentos a fornecedores e contas recorrentes de forma autônoma (moeda comum ou cripto).
+chief-financial-officer|fin|1|1|U|CFO: alocação de capital, tesouraria, planejamento, investidores e conselho.
+specialized-pricing-analyst|fin|3|2|U|Define preço com base em mercado, concorrência, custo e margem.
+support-finance-tracker|fin|3|1|U|Acompanha orçamento, fluxo de caixa e desempenho financeiro.
+blender-addon-engineer|game|4|2|N|Cria add-ons Python para Blender que automatizam o pipeline de arte.
+economy-designer|game|3|1|N|Desenha economia virtual: moedas, monetização e inflação.
+game-audio-engineer|game|3|2|N|Áudio interativo: FMOD/Wwise, música adaptativa e áudio espacial.
+game-designer|game|2|1|N|Desenha mecânicas, loops e o documento de design do jogo.
+godot-gameplay-scripter|game|4|2|N|Programa gameplay em Godot 4 (GDScript/C#).
+godot-multiplayer-engineer|game|4|2|N|Multiplayer em Godot 4.
+godot-shader-developer|game|4|2|N|Shaders e efeitos visuais em Godot 4.
+level-designer|game|3|1|N|Desenha fases: layout, ritmo e encontros.
+narrative-designer|game|3|1|N|História, diálogos ramificados e universo do jogo.
+roblox-avatar-creator|game|4|2|N|Cria itens e avatares para o marketplace do Roblox.
+roblox-experience-designer|game|3|1|N|Desenha engajamento e monetização de experiências Roblox.
+roblox-systems-scripter|game|4|2|N|Programa sistemas Roblox em Luau.
+technical-artist|game|3|2|N|Ponte entre arte e engine: shaders, efeitos e otimização de assets.
+unity-architect|game|2|2|N|Arquitetura modular de projetos Unity.
+unity-editor-tool-developer|game|4|2|N|Ferramentas de editor Unity que poupam horas do time.
+unity-multiplayer-engineer|game|4|2|N|Multiplayer em Unity.
+unity-shader-graph-artist|game|4|2|N|Shaders e materiais em Unity.
+unreal-multiplayer-architect|game|3|2|N|Rede e servidor dedicado em Unreal 5.
+unreal-systems-engineer|game|3|2|N|Sistemas e desempenho nível AAA em Unreal 5.
+unreal-technical-artist|game|4|2|N|Materiais, Niagara e pipeline visual em Unreal 5.
+unreal-world-builder|game|4|2|N|Mundos abertos em Unreal 5.
+gis-3d-scene-developer|gis|4|2|N|Cenas 3D na web: terreno e nuvem de pontos (Cesium, ArcGIS).
+gis-analyst|gis|4|2|N|Operação GIS do dia a dia: mapas, camadas e consultas espaciais.
+gis-bim-specialist|gis|3|2|N|Une BIM e GIS: Revit/IFC, mapa interno e gêmeo digital.
+gis-cartography-designer|gis|4|1|N|Desenha mapas bonitos e legíveis.
+gis-drone-reality-mapping|gis|4|2|N|Processa imagem de drone em ortomosaico, modelo de terreno e 3D.
+gis-geoai-ml-engineer|gis|3|2|N|IA em imagens de satélite: detecção, segmentação e uso do solo.
+gis-geoprocessing-specialist|gis|4|2|N|Automatiza análises espaciais com ArcPy/Python.
+gis-qa-engineer|gis|4|1|N|Valida a qualidade de dados geoespaciais.
+gis-solution-engineer|gis|3|2|N|Constrói protótipos e provas de conceito GIS.
+gis-spatial-data-engineer|gis|3|3|N|ETL geoespacial: converte, reprojeta e padroniza dados.
+gis-spatial-data-scientist|gis|3|2|N|Estatística e previsão sobre dados espaciais.
+gis-technical-consultant|gis|2|1|N|Traduz problema de negócio em solução geoespacial e roadmap.
+gis-web-gis-developer|gis|3|2|N|Constrói aplicações de mapa interativo na web.
+healthcare-clinical-evidence-agent|vert|3|1|N|Define padrão de evidência clínica para a IA em saúde não afirmar o que não pode provar.
+healthcare-innovation-strategist|vert|2|1|N|Constrói a narrativa estratégica de startups de saúde.
+healthcare-sovereign-health-systems-agent|vert|3|1|N|Orienta como abordar governos e sistemas públicos de saúde.
+healthcare-aging-parent-care-companion|vert|4|4|N|Ajuda famílias a coordenar o cuidado de pais idosos: consultas, remédios e equipe.
+healthcare-customer-service|vert|4|4|N|Atendimento a pacientes: agenda, cobrança, convênio e reclamações.
+hospitality-guest-services|vert|4|1|N|Atendimento em hotel, restaurante e eventos: reservas, concierge e reclamações.
+loan-officer-assistant|vert|4|4|N|Assistente de crédito e financiamento imobiliário: pré-qualificação, documentos e pipeline.
+medical-billing-coding-specialist|vert|4|4|R|Codificação e faturamento médico no padrão dos EUA (ICD-10, CPT).
+real-estate-buyer-seller|vert|4|1|N|Assistente de corretor de imóveis: compradores, vendedores, anúncios e negociação.
+specialized-civil-engineer|vert|3|1|N|Engenharia civil e estrutural com normas internacionais.
+study-abroad-advisor|vert|4|1|N|Planeja estudo no exterior: escolha de escola, redações e candidatura.
+marketing-aeo-foundations|mkt|3|2|U|Prepara o site para ser lido por IAs: llms.txt, robots e conteúdo estruturado.
+marketing-agentic-search-optimizer|mkt|3|2|T|Verifica se agentes de IA conseguem comprar, agendar ou se cadastrar no seu site.
+marketing-ai-citation-strategist|mkt|3|1|U|Faz sua marca ser citada por ChatGPT, Claude, Gemini e Perplexity.
+marketing-app-store-optimizer|mkt|3|1|T|Aumenta descoberta e conversão do app nas lojas (ASO).
+marketing-baidu-seo-specialist|mkt|4|1|R|SEO para o Baidu.
+marketing-bilibili-content-strategist|mkt|4|1|R|Conteúdo e crescimento no Bilibili.
+marketing-book-co-author|mkt|4|1|U|Transforma áudios e notas do fundador em capítulos de um livro de autoridade.
+marketing-carousel-growth-engine|mkt|4|4|U|Gera carrosséis para TikTok e Instagram a partir de uma URL e publica sozinho via API.
+marketing-china-ecommerce-operator|mkt|3|1|R|Opera lojas em Taobao, Tmall, Pinduoduo e JD.
+marketing-china-market-localization-strategist|mkt|2|1|R|Estratégia de entrada no mercado chinês em todas as plataformas.
+marketing-content-creator|mkt|4|2|U|Calendário editorial e textos para todos os canais.
+marketing-cross-border-ecommerce|mkt|3|1|N|Venda internacional: Amazon, Shopee, AliExpress, Temu, TikTok Shop, logística e impostos.
+marketing-developer-community-builder|mkt|3|1|T|Cria e mantém comunidade de desenvolvedores (Discord, GitHub).
+marketing-douyin-strategist|mkt|4|1|R|Vídeo curto e vendas ao vivo no Douyin.
+marketing-email-strategist|mkt|3|1|U|E-mail marketing: sequências, segmentação, automação e entregabilidade.
+marketing-global-podcast-strategist|mkt|3|1|U|Posiciona, faz crescer e monetiza um podcast (Spotify, Apple, YouTube).
+marketing-growth-hacker|mkt|2|2|U|Aquisição rápida via experimentos, funis e loops virais.
+marketing-instagram-curator|mkt|4|1|U|Instagram: estética, formatos e engajamento.
+marketing-kuaishou-strategist|mkt|4|1|R|Vídeo curto e lives no Kuaishou.
+marketing-linkedin-content-creator|mkt|4|1|U|Conteúdo e marca pessoal no LinkedIn que geram oportunidades.
+marketing-livestream-commerce-coach|mkt|3|1|R|Treina apresentadores e operação de vendas ao vivo (plataformas chinesas).
+marketing-multi-platform-publisher|mkt|4|4|R|Publica um artigo em várias plataformas chinesas de uma vez.
+marketing-podcast-strategist|mkt|4|1|R|Podcast para o mercado chinês.
+marketing-pr-communications-manager|mkt|2|1|U|Assessoria de imprensa, releases, gestão de crise e reputação.
+marketing-private-domain-operator|mkt|3|1|R|CRM e comunidades no WeChat corporativo.
+marketing-reddit-community-builder|mkt|4|1|U|Presença autêntica no Reddit.
+marketing-seo-specialist|mkt|3|2|U|SEO técnico, de conteúdo e de autoridade para tráfego orgânico.
+marketing-short-video-editing-coach|mkt|4|1|U|Ensina edição de vídeo curto: CapCut, Premiere e DaVinci.
+marketing-social-media-strategist|mkt|2|2|U|Estratégia de redes sociais entre plataformas.
+marketing-tiktok-strategist|mkt|4|1|U|TikTok: conteúdo viral e algoritmo.
+marketing-twitter-engager|mkt|4|1|U|X/Twitter: engajamento em tempo real e threads.
+marketing-video-optimization-specialist|mkt|4|1|U|YouTube: retenção, capítulos e thumbnails.
+marketing-wechat-official-account|mkt|4|1|R|Conta oficial do WeChat.
+marketing-weibo-strategist|mkt|4|1|R|Operação no Weibo.
+marketing-x-twitter-intelligence-analyst|mkt|4|3|U|Monitora X/Twitter: tendências, contas e sinais de audiência com evidência.
+marketing-xiaohongshu-specialist|mkt|4|1|R|Conteúdo de estilo de vida no Xiaohongshu.
+marketing-zhihu-strategist|mkt|4|1|R|Autoridade por respostas no Zhihu.
+specialized-developer-advocate|mkt|3|2|T|Leva o produto a desenvolvedores: conteúdo técnico, comunidade e adoção.
+paid-media-auditor|ads|3|3|U|Audita contas Google, Microsoft e Meta Ads em mais de 200 pontos e mostra o desperdício.
+paid-media-creative-strategist|ads|3|3|U|Cria e testa anúncios: texto, RSA e criativos.
+paid-media-paid-social-strategist|ads|3|3|U|Anúncios em Meta, LinkedIn, TikTok e Pinterest, do topo ao fundo do funil.
+paid-media-ppc-strategist|ads|2|3|U|Arquiteta campanhas de busca, shopping e PMax e distribui o orçamento.
+paid-media-programmatic-buyer|ads|3|3|U|Compra display e mídia programática (GDN, DV360).
+paid-media-search-query-analyst|ads|4|3|U|Analisa termos de busca e negativa palavras para cortar gasto inútil.
+paid-media-tracking-specialist|ads|3|3|U|Configura rastreamento de conversão: GTM, GA4 e CAPI.
+product-behavioral-nudge-engine|prd|3|2|T|Usa psicologia comportamental para o usuário voltar e concluir tarefas.
+product-dx-engineer|prd|3|2|T|Tira o atrito entre o dev e o primeiro sucesso com o seu produto.
+product-feedback-synthesizer|prd|4|2|U|Junta feedback de clientes e transforma em prioridades.
+product-manager|prd|1|2|U|Dono do produto do começo ao fim: descoberta, roadmap, lançamento e resultado.
+product-sprint-prioritizer|prd|3|2|T|Planeja a sprint e prioriza funcionalidades.
+product-trend-researcher|prd|3|2|U|Pesquisa tendências, concorrentes e oportunidades de mercado.
+project-management-experiment-tracker|pm|3|1|U|Organiza testes A/B e experimentos com rigor.
+project-management-jira-workflow-steward|pm|4|2|T|Garante que commits e PRs estejam ligados a tarefas do Jira.
+project-management-meeting-notes-specialist|pm|4|2|U|Transforma reunião em decisões, tarefas e pendências.
+project-management-project-shepherd|pm|2|1|U|Conduz projetos entre áreas do início ao fim: prazo, risco e partes interessadas.
+project-management-studio-operations|pm|3|1|U|Cuida da operação diária e dos processos da empresa.
+project-management-studio-producer|pm|1|1|U|Lidera o portfólio de projetos e aloca recursos conforme o objetivo do negócio.
+project-manager-senior|pm|3|2|T|Converte especificação em lista de tarefas realista.
+sales-account-strategist|ven|3|1|U|Expande contas depois da venda: mapa de decisores, reuniões de resultado e retenção de receita.
+sales-coach|ven|2|1|U|Treina vendedores: revisão de pipeline, ligações e previsão.
+sales-deal-strategist|ven|2|1|U|Qualifica e monta estratégia para negócios B2B complexos (MEDDPICC).
+sales-discovery-coach|ven|3|1|U|Ensina a fazer descoberta: perguntas que revelam o motivo real de compra.
+sales-engineer|ven|3|2|T|Pré-venda técnica: demo, prova de conceito e comparação com concorrente.
+sales-offer-lead-gen-strategist|ven|2|1|U|Desenha ofertas e iscas digitais que atraem compradores qualificados.
+sales-outbound-strategist|ven|3|1|U|Prospecção ativa multicanal baseada em sinais, não em volume.
+sales-pipeline-analyst|ven|3|1|U|Lê o CRM e mostra risco do pipeline e precisão da previsão.
+sales-proposal-strategist|ven|3|1|U|Transforma editais e oportunidades em propostas vencedoras.
+sales-outreach|ven|4|1|U|Prospecção B2B: abordagem fria, follow-up, objeções e proposta.
+sales-data-extraction-agent|ven|4|3|N|Monitora planilhas Excel e extrai métricas de vendas.
+data-consolidation-agent|ven|4|3|N|Consolida dados de vendas em painel por território e vendedor.
+report-distribution-agent|ven|4|3|N|Envia relatórios de vendas para cada vendedor conforme o território.
+government-digital-presales-consultant|ven|3|1|R|Pré-venda para governo chinês: editais e propostas.
+grant-writer|ven|3|1|N|Escreve projetos para captar editais e financiamentos (ONGs e pesquisa).
+specialized-french-consulting-market|ven|4|1|R|Navega o mercado francês de consultoria freelance.
+specialized-korean-business-navigator|ven|4|1|R|Etiqueta e processo de negócios na Coreia.
+security-ai-generated-code-auditor|sec|3|2|T|Audita apps feitos com IA: segredos expostos, permissões quebradas e injeção de prompt.
+security-appsec-engineer|sec|3|2|T|Segurança no ciclo de desenvolvimento: modelagem de ameaças, revisão e varredura automática.
+security-architect|sec|2|1|T|Desenha a segurança do sistema: ameaças, fronteiras de confiança e defesa em camadas.
+security-blockchain-security-auditor|sec|3|1|N|Audita contratos inteligentes e DeFi.
+security-cloud-security-architect|sec|2|3|T|Segurança de nuvem zero trust em AWS, Azure e GCP.
+security-compliance-auditor|sec|3|1|T|Prepara a empresa para SOC 2, ISO 27001, HIPAA e PCI.
+security-incident-responder|sec|2|4|T|Lidera a resposta a uma invasão: contenção, perícia e post-mortem.
+security-penetration-tester|sec|3|4|T|Ataca seus sistemas com autorização para achar falhas antes do invasor.
+security-secrets-credential-engineer|sec|3|4|T|Cuida de senhas e chaves: detecção, cofre, rotação e resposta a vazamento.
+security-senior-secops|sec|3|2|T|Varre todo código atrás de segredos e aplica os controles de segurança da empresa.
+security-threat-detection-engineer|sec|3|3|T|Escreve regras de detecção no SIEM e caça ameaças.
+security-threat-intelligence-analyst|sec|3|1|T|Acompanha grupos atacantes e produz inteligência acionável.
+specialized-fedramp-rmf-compliance|sec|3|1|R|Conformidade FedRAMP/NIST para vender ao governo dos EUA.
+macos-spatial-metal-engineer|xr|3|2|N|Renderização 3D de alto desempenho em Swift/Metal para macOS e Vision Pro.
+terminal-integration-specialist|xr|4|2|N|Emulação de terminal em apps Swift (SwiftTerm).
+visionos-spatial-engineer|xr|3|2|N|Apps nativos para Vision Pro.
+xr-cockpit-interaction-specialist|xr|4|2|N|Controles de cockpit imersivos em XR.
+xr-immersive-developer|xr|3|2|N|Experiências AR/VR no navegador (WebXR).
+xr-interface-architect|xr|2|1|N|Desenha interação e interface para AR/VR.
+agentic-identity-trust|agt|3|2|T|Desenha identidade e confiança entre agentes de IA: quem é, o que pode e o que fez.
+agents-orchestrator|agt|1|3|T|Gerente da linha de produção: coordena os outros agentes do início ao fim do desenvolvimento.
+automation-governance-architect|agt|2|1|U|Avalia valor, risco e manutenção de uma automação (n8n) antes de construir.
+identity-graph-operator|agt|3|3|T|Mantém um cadastro único de entidades para vários agentes darem a mesma resposta.
+specialized-mcp-builder|agt|3|2|T|Constrói servidores MCP que dão ferramentas novas aos agentes de IA.
+specialized-workflow-architect|agt|2|1|T|Mapeia cada fluxo com todos os caminhos, falhas e passagens de bastão.
+business-strategist|dir|1|1|U|Consultor de estratégia: concorrência, entrada em mercado, modelo de negócio e crescimento.
+specialized-chief-of-staff|dir|1|1|U|Braço direito do fundador: filtra ruído, cuida de processos e encaminha decisões.
+esg-sustainability-officer|dir|2|1|U|Programa ESG: relatórios, descarbonização e metas.
+ma-integration-manager|dir|2|1|N|Integra empresas após fusão ou aquisição: Dia 1, plano de 100 dias e sinergias.
+specialized-master-plan-architect|dir|2|1|T|Escreve plano de implementação detalhado e critica os riscos, sem executar código.
+specialized-strategy-duel-agent|dir|4|1|N|Simula duelos de estratégia com teoria dos jogos e os 36 estratagemas chineses.
+support-executive-summary-generator|dir|4|1|U|Resume material complexo em sumário executivo no padrão das grandes consultorias.
+change-management-consultant|pop|2|1|U|Conduz mudanças na empresa (sistema novo, reestruturação) reduzindo resistência.
+corporate-training-designer|pop|3|1|U|Desenha programas de treinamento corporativo e trilhas de aprendizado.
+hr-onboarding|pop|4|4|U|Integra novos funcionários: documentos, benefícios, cultura e primeiro ano.
+operations-manager|pop|1|1|U|Gerente de operações: processos, capacidade, indicadores e fornecedores (Lean, Six Sigma).
+organizational-psychologist|pop|3|1|U|Diagnostica dinâmica de equipe, risco de burnout e saúde da cultura.
+personal-growth-mentor|pop|4|1|U|Mentor pessoal: metas, hábitos e decisões, sem papo motivacional.
+recruitment-specialist|pop|3|4|R|Recrutamento e seleção com foco em plataformas e lei trabalhista da China.
+resume-tailor|pop|4|1|U|Ajusta currículo à vaga sem inventar qualificação.
+specialized-document-generator|pop|4|2|U|Gera PDF, PPTX, DOCX e XLSX por código.
+supply-chain-strategist|pop|2|1|R|Compras e cadeia de suprimentos com base no ecossistema fabril chinês.
+testing-workflow-optimizer|pop|3|1|U|Analisa e automatiza processos de qualquer área.
+zk-steward|pop|4|2|U|Organiza base de conhecimento no método Zettelkasten.
+customer-service|cx|4|1|U|Atende clientes de qualquer setor: dúvidas, reclamações e escalonamento.
+customer-success-manager|cx|2|1|U|Implantação, saúde da conta, prevenção de cancelamento e renovação.
+language-translator|cx|4|1|N|Tradução espanhol ↔ inglês com contexto cultural.
+retail-customer-returns|cx|4|4|N|Trocas, devoluções e reembolsos no varejo, com prevenção a fraude.
+support-support-responder|cx|3|1|U|Suporte multicanal que resolve e transforma atendimento em experiência positiva.
+data-privacy-officer|jur|1|1|U|Encarregado de dados: programa de privacidade (GDPR/CCPA), mapeamento e resposta a incidentes.
+healthcare-marketing-compliance|jur|3|1|R|Conformidade de publicidade de saúde na China.
+legal-billing-time-tracking|jur|4|4|N|Controle de horas e faturamento de escritório de advocacia.
+legal-client-intake|jur|4|4|N|Triagem de novos clientes de advocacia e resumo pronto para o advogado.
+legal-document-review|jur|3|4|U|Revisa contratos: resume, aponta cláusulas de risco e compara versões.
+support-legal-compliance-checker|jur|3|1|U|Verifica se operação, dados e conteúdo cumprem leis e normas.
+specialized-model-qa|dia|3|2|N|Audita modelos de ML e estatística de ponta a ponta.
+support-analytics-reporter|dia|3|2|U|Transforma dados em dashboards, indicadores e recomendações.
+support-infrastructure-maintainer|ops|3|3|T|Mantém a infraestrutura de pé, rápida e segura.
+testing-accessibility-auditor|qa|3|2|T|Audita acessibilidade (WCAG) com leitor de tela.
+testing-api-tester|qa|3|3|T|Testa APIs: funcionamento, carga e segurança.
+testing-evidence-collector|qa|4|3|T|QA com prova: screenshots e passos reproduzíveis, e marca o que não testou.
+testing-performance-benchmarker|qa|3|3|T|Mede e melhora o desempenho de sistemas.
+testing-reality-checker|qa|2|3|T|Porteiro final: só aprova para produção com prova esmagadora.
+testing-test-automation-engineer|qa|3|2|T|Automatiza testes ponta a ponta (Playwright/Cypress) sem instabilidade.
+testing-test-results-analyzer|qa|4|1|T|Analisa resultados de teste e métricas de qualidade.
+testing-tool-evaluator|qa|4|1|U|Avalia e recomenda ferramentas e software para a empresa.
